@@ -3,7 +3,7 @@
 Welcome! This repository powers my GitHub Pages site.  
 
 The content, design, and code in this repository are protected by copyright.  
-If you're browsing, great — but if you're thinking of copying or reusing, please read the following first:
+If you're browsing, great but if you're thinking of copying or reusing, please read the following first:
 
 - [LICENSE.md](./LICENSE.md)  
 - [COPYRIGHT.md](./COPYRIGHT.md)  
