@@ -1,56 +1,43 @@
-<!doctype html>
-<html>
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Thunder Client</title>
-  <style>
-    html,body { margin:0; height:100%; background:#000; color:#fff; }
-    #ui { min-height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1rem; }
-    button,select { background:#000; color:#fff; border:1px solid #ffffff33; padding:.6rem .9rem; border-radius:.5rem; }
-    button:hover { background:#ffffff18; cursor:pointer; }
-  </style>
-</head>
-<body>
-  <div id="ui">
-    <h1 style="font-family: system-ui; font-weight:800;">Thunder Client</h1>
-    <div>
-      <select id="versionSel">
-        <option selected>WASM (1.12.2)</option>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thunder Client</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        font-family: "Pixelify Sans", sans-serif;
+      }
+    </style>
+  </head>
+  <body
+    class="min-h-screen bg-black text-white flex flex-col items-center justify-center"
+  >
+    <h1 class="text-5xl font-bold mb-8">Thunder Client</h1>
+
+    <div class="flex gap-2 items-center">
+      <select
+        class="bg-black border border-white/20 text-white rounded-md px-3 py-2"
+      >
+        <option>WASM (1.12.2)</option>
+        <option>Other Version</option>
       </select>
-      <button id="playBtn">▶ Play</button>
+
+      <button
+        class="border border-white/20 hover:bg-white/10 px-4 py-2 rounded-md flex items-center gap-2"
+      >
+        ▶ Play
+      </button>
     </div>
-    <div style="opacity:.6; font-size:.8rem">
-      Not affiliated with Mojang AB or Microsoft —
-      <a href="privacy.html" style="color:#fff">Privacy Policy</a>
+
+    <div class="text-xs text-gray-400 mt-12 flex flex-col items-center space-y-1">
+      <p>Not affiliated with Mojang AB or Microsoft</p>
+      <a href="privacy.html" class="hover:text-white underline">Privacy Policy</a>
     </div>
-  </div>
-
-  <script>
-    // Configure the client BEFORE loading classes.js
-    window.eaglercraftXOpts = {
-      container: "gameCanvas",
-      assetsURI: "./assets.epk",
-      servers: [] // add your server definitions here if your build supports it
-      // Some builds accept more keys (e.g., localesURI, allowVoiceClient, etc.)
-    };
-
-    document.getElementById('playBtn').addEventListener('click', () => {
-      // replace UI with a fullscreen canvas
-      document.body.innerHTML = '';
-      const c = document.createElement('canvas');
-      c.id = 'gameCanvas';
-      c.tabIndex = 0;        // keyboard focus
-      c.style.width = '100vw';
-      c.style.height = '100vh';
-      c.style.display = 'block';
-      document.body.appendChild(c);
-
-      const s = document.createElement('script');
-      s.src = './classes.js';
-      s.onerror = (e) => alert('Failed to load client.');
-      document.body.appendChild(s);
-    });
-  </script>
-</body>
+  </body>
 </html>
