@@ -13,22 +13,44 @@
       body {
         font-family: "Pixelify Sans", sans-serif;
       }
+      .bg-thunder {
+        background: radial-gradient(circle at center, #0a0a0a 0%, #000 100%);
+      }
     </style>
+    <script>
+      function playGame() {
+        const version = document.getElementById("versionSelect").value;
+        if (version === "wasm") {
+          window.location.href = "https://thundernetwork.store/wasm/index.html";
+        } else if (version === "nonwasm") {
+          window.location.href = "https://thundernetwork.store/non-wasm/index.html";
+        }
+      }
+    </script>
   </head>
   <body
-    class="min-h-screen bg-black text-white flex flex-col items-center justify-center"
+    class="min-h-screen bg-thunder text-white flex flex-col items-center justify-center"
   >
+    <!-- Blue lightning logo -->
+    <div class="mb-6">
+      <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+      </svg>
+    </div>
+
     <h1 class="text-5xl font-bold mb-8">Thunder Client</h1>
 
     <div class="flex gap-2 items-center">
       <select
+        id="versionSelect"
         class="bg-black border border-white/20 text-white rounded-md px-3 py-2"
       >
-        <option>WASM (1.12.2)</option>
-        <option>Other Version</option>
+        <option value="wasm">WASM (1.12.2)</option>
+        <option value="nonwasm">Non-WASM (1.12.2)</option>
       </select>
 
       <button
+        onclick="playGame()"
         class="border border-white/20 hover:bg-white/10 px-4 py-2 rounded-md flex items-center gap-2"
       >
         ▶ Play
